@@ -1,22 +1,23 @@
-//Lista 2 Questao B
+//Lista 2 Questao A
 #include <stdio.h>
 
 int main()
 {
-    int quant;
-    int x1, y1, x2, y2;
+    int xm, ym, xr, yr, dx, dy;
     
-    scanf("%d", &quant);
+    scanf("%d %d %d %d", &xm, &ym, &xr, &yr);
     
-    int i, d;
-    i = d = 0;
-    while (i < quant) {
-        scanf("%d %d %d %d", &x1, &y1, &x2, &y2);
-        d = d + (x1 - x2) * (x1 - x2) + (y1 - y2) * (y1 - y2);
-        i++;
+    dx = xm - xr;
+    dy = ym - yr;
+    
+    if (dx < 0) {
+        dx = -1 * dx;
     }
     
-    printf("%d", d);
+    if (dy < 0) {
+        dy = -1 * dy;
+    }
+
+    printf("%d", dx + dy);
     return 0;
 }
-
