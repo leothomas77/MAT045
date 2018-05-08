@@ -1,7 +1,4 @@
-#include <iostream>
-
-using namespace std;
-
+#include <stdio.h>
 int main()
 {
     int x, y, l1, h1, l2, h2;
