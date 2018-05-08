@@ -11,13 +11,7 @@ int main()
     
     if (x >= l1 + l2 && y >= h1 && y >= h2) {
         saida = 'S';
-    } else if (x >= l1 + h2 && y >= h1 && y >= l2) {
-        saida = 'S';
-    } else if (x >= h1 + h2 && y >= l1 && y >= l2) {
-        saida = 'S';
-    } else if (x >= h1 + l2 && y >= l1 && y >= h2) {
-        saida = 'S';
-    } 
+    }
     
     printf("%c\n", saida);
     
