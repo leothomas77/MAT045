@@ -4,6 +4,7 @@
 int main()
 {
     int n, c, s, e, capacidade_utilizada;
+    char saida = 'N';
     scanf("%d %d", &n, &c);
     
     int i = 0;
@@ -13,14 +14,12 @@ int main()
         capacidade_utilizada = capacidade_utilizada + e - s;
         
         if (capacidade_utilizada > c) {
-            printf("S\n");
-            break;
+            saida = 'S';
         }
         
         i++;
     }
     
-    printf("N\n");
+    printf("%c\n", saida);
     return 0;
 }
-
