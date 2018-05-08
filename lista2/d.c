@@ -1,49 +1,28 @@
-//Lista 2 Questao D - Album de fotos
-#include <stdio.h>
-int
-main ()
+#include <iostream>
+
+using namespace std;
+
+int main()
 {
-  int x, y, l1, h1, l2, h2;
-  int colou_fotos = 0;;
-
-  scanf ("%d %d", &x, &y);	// dimensoes da pagina
-
-  scanf ("%d %d", &l1, &h1);	// dimensoes da foto 1
-  scanf ("%d %d", &l2, &h2);	// dimensoes da foto 2
-
-  //posicao 1
-  if ((l1 + l2) <= x && h1 <= y && h2 <= y)
-    {
-      colou_fotos++;
-    }
-
-  //posicao 2
-  if ((l1 + h2) <= x && h1 <= y && l2 <= y)
-    {
-      colou_fotos++;
-    }
-
-  //posicao 3
-  if ((h1 + l2) <= x && l1 <= y && h2 <= y)
-    {
-      colou_fotos++;
-    }
-
-  //posicao 4
-  if ((h1 + h2) <= x && l1 <= y && l2 <= y)
-    {
-      colou_fotos++;
-    }
-
-
-  if (colou_fotos)
-    {
-      printf ("S\n");
-    }
-  else
-    {
-      printf ("N\n");
-    }
-
-  return 0;
+    int x, y, l1, h1, l2, h2;
+    char saida = 'N';
+    
+    scanf("%d %d", &x, &y);
+    
+    scanf("%d %d", &l1, &h1);
+    scanf("%d %d", &l2, &h2);
+    
+    if (x >= l1 + l2 && y >= h1 && y >= h2) {
+        saida = 'S';
+    } else if (x >= l1 + h2 && y >= h1 && y >= l2) {
+        saida = 'S';
+    } else if (x >= h1 + h2 && y >= l1 && y >= l2) {
+        saida = 'S';
+    } else if (x >= h1 + l2 && y >= l1 && y >= h2) {
+        saida = 'S';
+    } 
+    
+    printf("%c\n", saida);
+    
+    return 0;
 }
