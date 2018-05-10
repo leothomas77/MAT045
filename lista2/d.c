@@ -17,9 +17,18 @@ int main()
         saida = 'S';
     } else if (x >= h1 + l2 && y >= l1 && y >= h2) {
         saida = 'S';
+    } else if (x >= l1 && x >= h2 && y >= h1 + l2) {
+        saida = 'S';
+    } else if (x >= l1 && x >=l2 && y >= h1 + h2) {
+        saida = 'S';
+    } else if (x >= h1 && x >= h2 && y >= l1 + l2) {
+        saida = 'S';
+    } else if (x >= h1 && x >= l2 && y >= l1 + h2) {
+        saida = 'S';
     }
     
     printf("%c\n", saida);
     
     return 0;
 }
+
