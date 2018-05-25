@@ -1,42 +1,34 @@
-//Lista 2 Questao B
 #include <stdio.h>
-#define RETRATO 0
-#define PAISAGEM 1
 int main()
 {
-    int x, y, l, h;
-    int orientacaoPagina, orientacaoFoto;
-    
+    int x, y, l1, h1, l2, h2;
+    char saida = 'N';
     
     scanf("%d %d", &x, &y);
-    if (y > x) {
-        orientacaoPagina = RETRATO
-    } else {
-        orientacaoPagina = PAISAGEM;
+    
+    scanf("%d %d", &l1, &h1);
+    scanf("%d %d", &l2, &h2);
+    
+    if (x >= l1 + l2 && y >= h1 && y >= h2) {
+        saida = 'S';
+    } else if (x >= l1 + h2 && y >= h1 && y >= l2) {
+        saida = 'S';
+    } else if (x >= h1 + h2 && y >= l1 && y >= l2) {
+        saida = 'S';
+    } else if (x >= h1 + l2 && y >= l1 && y >= h2) {
+        saida = 'S';
+    } else if (x >= l1 && x >= h2 && y >= h1 + l2) {
+        saida = 'S';
+    } else if (x >= l1 && x >=l2 && y >= h1 + h2) {
+        saida = 'S';
+    } else if (x >= h1 && x >= h2 && y >= l1 + l2) {
+        saida = 'S';
+    } else if (x >= h1 && x >= l2 && y >= l1 + h2) {
+        saida = 'S';
     }
-
-    for (int i = 0; i < 2; i++) {
-        scanf("%d %d", &l, &h);
-        
-        if (l > h) {
-            orientacaoFoto = RETRATO
-        } else {
-            orientacaoFoto = PAISAGEM;
-        }
-        
-        if (orientacaoPagina == RETRATO) {
-                    
-        } else {
-            
-        }
-
-    }
-
-    if (x >= 0 && y >= 0) {
-        printf("S %d %d\n", x, y);
-    } else {
-        printf("N %d %d\n", x, y);
-    }
+    
+    printf("%c\n", saida);
     
     return 0;
 }
+
