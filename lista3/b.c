@@ -13,38 +13,41 @@ Pooooodle
 Poooooooooooooooodle
 */
 #include <stdio.h>
-
+#define MAX 100
 int main() {
-    int N, P, paginas, paginaFinal;
-    do {    
-        scanf("%d %d", &N, &P);
-        if (N == 0 && P == 0) {
+    int N[MAX], P[MAX], paginas, paginaFinal, index = 0;
+    int n, p;
+    do {
+        scanf("%d %d", &n, &p);
+        if (n == 0 && p == 0) {
             break;        
         }
+        N[index] = n;
+        P[index] = p;
+        index++;
+    } while(n != 0 && p != 0);
 
+    for (int i = 0; i < index; i++) {
         printf("Poo");
         
-        paginas = N / P;
-        paginaFinal = 0;
-        if (N % P) {
-            paginaFinal = 1;
+        paginas = N[i] / P[i];
+        
+        if (paginas < 6) {
+            paginas = 0;
+        } else if (paginas > 20) {
+            paginas = 20;
+        } else if (N[i] % P[i] != 0) {
+            paginas++;
         }
 
-        if (paginas > 6) {
-            paginas = paginas + paginaFinal - 6;
-            if (paginas > 20) {
-                paginas = 14;
-            }
+        paginas = paginas - 6;
 
-            while(paginas > 0) {
-                printf("o");
-                paginas--;
-            }
+        while(paginas > 0) {
+            printf("o");
+            paginas--;
         }
 
         printf("dle\n");
-    } while(N != 0 && P != 0);
+    }
     return 0;
 }
-
-
