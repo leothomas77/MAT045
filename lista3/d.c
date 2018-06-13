@@ -2,7 +2,7 @@
 #define MAX 100
 
 int main() {
-    int A, V, X, Y, voos_aeroportos[MAX], index = 1;
+    int A, V, X, Y, voos_aeroportos[MAX + 1], index = 1;
     int maiorFrequencia = 0;
     for( ; ; ) {
         for (int i = 0; i < MAX; i++) {
