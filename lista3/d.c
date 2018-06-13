@@ -18,18 +18,16 @@ int main() {
             scanf("%d%d", &X, &Y);
             voos_aeroportos[X]++;
             voos_aeroportos[Y]++;
-            
-            if (voos_aeroportos[X] >= maiorFrequencia) {
-                maiorFrequencia = voos_aeroportos[X];
-            }
-    
-            if (voos_aeroportos[Y] >= maiorFrequencia) {
-                maiorFrequencia = voos_aeroportos[Y];
-            }
         }
 
+        for (int i = 0; i <= A; i++) {
+            if (voos_aeroportos[i] >= maiorFrequencia) {
+                maiorFrequencia = voos_aeroportos[i];
+            }
+        }
+        
         printf("Teste %d\n", index);
-        for(int i = 1; i <= A; i++) {
+        for(int i = 0; i <= A; i++) {
             if (voos_aeroportos[i] == maiorFrequencia) {
                 printf("%d ", i);
             }
