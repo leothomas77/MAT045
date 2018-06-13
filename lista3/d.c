@@ -20,16 +20,38 @@ int main() {
             voos_aeroportos[Y]++;
         }
 
-        for (int i = 0; i <= A; i++) {
-            if (voos_aeroportos[i] >= maiorFrequencia) {
+        for (int i = 1; i <= A; i++) {
+            if (voos_aeroportos[i] > maiorFrequencia) {
                 maiorFrequencia = voos_aeroportos[i];
             }
         }
         
-        printf("Teste %d\n", index);
-        for(int i = 0; i <= A; i++) {
+        int cont = 0;
+        for (int i = 1; i <= A; i++) {
             if (voos_aeroportos[i] == maiorFrequencia) {
-                printf("%d ", i);
+                cont++;
+            }
+        }
+
+
+        printf("Teste %d\n", index);
+        if (cont <=1) {
+            for(int i = 1; i <= A; i++) {
+                if (voos_aeroportos[i] == maiorFrequencia) {
+                    printf("%d", i);
+                    break;
+                }
+            }
+        } else {
+            for(int i = 1; i <= A; i++) {
+                if (voos_aeroportos[i] == maiorFrequencia) {
+                    if (cont >= 2) {
+                        printf("%d ", i);
+                    } else {
+                        printf("%d", i);
+                    }
+                    cont--;
+                }
             }
         }
         printf("\n\n");
