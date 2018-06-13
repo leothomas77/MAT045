@@ -1,30 +1,30 @@
 #include <stdio.h>
 #define MAX 101
 int main() {
-    int N = 1, nota, frequencias[MAX], notaMaiorFrequencia, maiorFrequencia;
+    int N = 1, nota, frequencias[MAX], maiorFrequencia;
     
     for (int i = 0; i < MAX; i++) {
         frequencias[i] = 0;
     }
 
-    while(N != 0) {
-        scanf("%d", &N);
-        if (N == 0) break;
         
-        notaMaiorFrequencia = -1;
-        maiorFrequencia = 0;
-        for (int i = 0; i < N; i++) {
-            int nota;
-            scanf("%d", &nota);
-            frequencias[nota]++;
-            
-            if(frequencias[nota] >= maiorFrequencia) {
-                maiorFrequencia = frequencias[nota];
-                notaMaiorFrequencia = nota;
-            }
+    scanf("%d", &N);
+    for (int i = 0; i < N; i++) {
+        scanf("%d", &nota);
+        
+        frequencias[nota]++;
+        if(frequencias[nota] >= maiorFrequencia) {
+            maiorFrequencia = frequencias[nota];
         }
-        
-        printf("%d\n", notaMaiorFrequencia);
     }
+    
+    int i;
+    for (i = MAX - 1; i > 0 ; i--) {
+        if (frequencias[i] == maiorFrequencia) {
+            break;
+        }
+    }
+    
+    printf("%d\n", i);
 
 }
