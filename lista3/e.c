@@ -1,8 +1,8 @@
 #include <stdio.h>
-#define MAX 100
+#define MAX 100000
 
 int main() {
-    int N = 1, territorio, territorios[MAX], somaMetade = 0, somaTotal = 0;
+    int N, territorio, territorios[MAX], somaMetade = 0, somaTotal = 0;
     for (int i = 0; i < MAX; i++) {
         territorios[i] = 0;
     }
@@ -23,7 +23,7 @@ int main() {
         }
     }
     
-    printf("%d", i + 1);
+    printf("%d", (i + 1));
 
     return 0;
 }
