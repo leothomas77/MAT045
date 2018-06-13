@@ -33,29 +33,19 @@ int main() {
             }
         }
 
-
         printf("Teste %d\n", index);
-        if (cont <=1) {
-            for(int i = 1; i <= A; i++) {
-                if (voos_aeroportos[i] == maiorFrequencia) {
-                    printf("%d", i);
+        for(int i = 1; i <= A; i++) {
+            if (voos_aeroportos[i] == maiorFrequencia) {
+                if (cont >= 2) {
+                    printf("%d ", i);
+                } else {
+                    printf("%d\n\n", i);
                     break;
                 }
-            }
-        } else {
-            for(int i = 1; i <= A; i++) {
-                if (voos_aeroportos[i] == maiorFrequencia) {
-                    if (cont >= 2) {
-                        printf("%d ", i);
-                    } else {
-                        printf("%d", i);
-                    }
-                    cont--;
-                }
+                cont--;
             }
         }
-        printf("\n\n");
-
+ 
         index++;
 
     }
