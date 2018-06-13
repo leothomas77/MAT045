@@ -2,7 +2,7 @@
 #define MAX 100
 
 int main() {
-    int A, V, X, Y, voos_aeroportos[MAX + 1], index = 1;
+    int A, V, X, Y, voos_aeroportos[MAX], index = 1;
     int maiorFrequencia = 0;
     for( ; ; ) {
         for (int i = 0; i < MAX; i++) {
@@ -27,25 +27,18 @@ int main() {
         }
         
         int cont = 0;
-        for (int i = 1; i <= A; i++) {
-            if (voos_aeroportos[i] == maiorFrequencia) {
-                cont++;
-            }
-        }
-
         printf("Teste %d\n", index);
         for(int i = 1; i <= A; i++) {
             if (voos_aeroportos[i] == maiorFrequencia) {
-                if (cont >= 2) {
+                if (cont == 0) {
                     printf("%d ", i);
                 } else {
-                    printf("%d\n\n", i);
-                    break;
+                    printf(" %d", i);
                 }
-                cont--;
+                cont++;
             }
         }
- 
+        printf("\n\n");
         index++;
 
     }
