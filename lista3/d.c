@@ -2,16 +2,13 @@
 #define MAX 100
 
 int main() {
-    int A, V, X, Y, voos_aeroportos[MAX], index = 0;
+    int A, V, X, Y, voos_aeroportos[MAX], index = 1;
+    int maiorFrequencia = -1;
     int resultados[MAX];
-
-    for (int i = 0; i < MAX; i++) {
-        resultados[i] = 0;
-    }
-    
     for( ; ; ) {
         for (int i = 0; i < MAX; i++) {
             voos_aeroportos[i] = 0;
+            resultados[i] = 0;
         }
 
         scanf("%d%d", &A, &V);
@@ -21,23 +18,27 @@ int main() {
             scanf("%d%d", &X, &Y);
             voos_aeroportos[X]++;
             voos_aeroportos[Y]++;
-        }
-
-        int maiorFrequencia = 0;
-        for(int i = 0; i < A; i++) {
-            if (voos_aeroportos[i] > maiorFrequencia) {
-                maiorFrequencia = voos_aeroportos[i];
+            
+            if (voos_aeroportos[X] > maiorFrequencia) {
+                maiorFrequencia = voos_aeroportos[X];
+            }
+    
+            if (voos_aeroportos[Y] > maiorFrequencia) {
+                maiorFrequencia = voos_aeroportos[Y];
             }
         }
 
-        resultados[index] = maiorFrequencia;
+        printf("Teste %d\n", index);
+        for(int i = 0; i < A; i++) {
+            if (voos_aeroportos[i] == maiorFrequencia) {
+                printf("%d ", i);
+            }
+        }
+        printf("\n");
+
         index++;
 
     }
 
-    for (int i = 0; i < index; i++) {
-        printf("Teste %d\n", i + 1);
-        printf("%d\n\n", resultados[i]);
-    }
     return 0;
 }
