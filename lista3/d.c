@@ -19,11 +19,11 @@ int main() {
             voos_aeroportos[X]++;
             voos_aeroportos[Y]++;
             
-            if (voos_aeroportos[X] > maiorFrequencia) {
+            if (voos_aeroportos[X] >= maiorFrequencia) {
                 maiorFrequencia = voos_aeroportos[X];
             }
     
-            if (voos_aeroportos[Y] > maiorFrequencia) {
+            if (voos_aeroportos[Y] >= maiorFrequencia) {
                 maiorFrequencia = voos_aeroportos[Y];
             }
         }
