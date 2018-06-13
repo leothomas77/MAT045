@@ -1,52 +1,54 @@
 #include <stdio.h>
-using namespace std;
+#define MAX 100
 
-#define MAX_AEROPORTOS 100
+int main() {
+    int A, V, X, Y, voos_aeroportos[MAX], index = 1;
+    int maiorFrequencia = 0;
+    for( ; ; ) {
+        for (int i = 0; i < MAX; i++) {
+            voos_aeroportos[i] = 0;
+        }   
 
-int main()
-{
- int a, v, x, y;
- int teste = 0;
- //os indices no problema vão de 1 a n...
- int trafego[MAX_AEROPORTOS+1];
+        scanf("%d%d", &A, &V);
+        if (A == 0  && V == 0) {
+            break;
+        }
+        
+        for(int i = 0; i < V; i++) {
+            scanf("%d%d", &X, &Y);
+            voos_aeroportos[X]++;
+            voos_aeroportos[Y]++;
+        }
+
+        for (int i = 1; i <= A; i++) {
+            if (voos_aeroportos[i] > maiorFrequencia) {
+                maiorFrequencia = voos_aeroportos[i];
+            }
+        }
+        
+        int cont = 0;
+        for (int i = 1; i <= A; i++) {
+            if (voos_aeroportos[i] == maiorFrequencia) {
+                cont++;
+            }
+        }
+
+        printf("Teste %d\n", index);
+        for(int i = 1; i <= A; i++) {
+            if (voos_aeroportos[i] == maiorFrequencia) {
+                if (cont >= 2) {
+                    printf("%d ", i);
+                } else {
+                    printf("%d\n\n", i);
+                    break;
+                }
+                cont--;
+            }
+        }
  
- while (1)
- {
-  scanf("%d %d", &a, &v);
-  if (a == 0 && v == 0) break;
-  
-  for (int i = 1; i <= a; i++) trafego[i] = 0;
-  
-  //observe que eu não preciso caucular grau_entrada e grau_saida, mas apenas a soma deles.
-  for (int i = 0; i < v; i++) {
-   scanf("%d %d", &x, &y);
-   trafego[x]++;
-   trafego[y]++;
-  }
-  
-  int max = 0;
-  for (int i = 1; i <= a; i++)
-  {
-   if (max < trafego[i]) 
-    max = trafego[i];
-  }
-  
-  //imprimindo os aeroportos. Observe que pode haver mais de um aeroporto com o maior tráfego.
-  printf("Teste %d\n", ++teste);
- 
-  bool primeiro = true;
-  for (int i = 1; i <= a; i++)
-  {
-   if (max == trafego[i])
-   {
-    if (primeiro) printf("%d", i);
-    else printf(" %d", i);
-    primeiro = false;
-   }
-  }
-  
-  printf("\n\n");
- }
+        index++;
 
- return 0;
+    }
+
+    return 0;
 }
