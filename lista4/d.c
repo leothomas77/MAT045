@@ -59,7 +59,7 @@ int main() {
 			printf("%d is a multiple of 11.\n", numero);
 		}
 		else {
-			printf("%d is not a multiple of 11.", numero);
+			printf("%d is not a multiple of 11.\n", numero);
 		}
 	}
 
