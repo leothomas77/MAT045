@@ -28,9 +28,8 @@ Exemplo de Saída
 112234 is not a multiple of 11.
 
 */
-#include <iostream>
-#include <fstream>
-#include <string>
+#include <stdio.h>
+#include <string.h>
 
 #define MAX 100
 
