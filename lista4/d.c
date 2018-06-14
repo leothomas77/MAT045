@@ -28,32 +28,40 @@ Exemplo de Saída
 112234 is not a multiple of 11.
 
 */
-#include <stdio.h>
-#include <string.h>
+#include <iostream>
+#include <fstream>
+#include <string>
+
 #define MAX 100
 
 int main() {
-    unsigned int numero, tam;
-    char numeroChar[MAX];
+	unsigned int numero = 0, tam;
+	char numeroChar[MAX];
+	while (1) {
 
-    scanf("%s", numeroChar);
-    tam = strlen(numeroChar);
-    
-    int contPotencia = tam - 1;
-    for (int i = 0; i < tam; i++) {
-        int digito = numeroChar[i] - '0';
-        for (int j = 0; j < contPotencia; j++) {
-            digito = digito * 10;
-        }
-        numero = numero + digito;
-        contPotencia--;
-    }
-    
-    if(numero % 11 == 0) {
-        printf("%d is a multiple of 11.\n", numero);
-    } else {
-        printf("%d\n  is not a multiple of 11.", numero);
-    }
+		scanf("%s", numeroChar);
+		tam = strlen(numeroChar);
+		if (tam == 1 && numeroChar[0] == '0') {
+			break;
+		}
 
-    return 0;
+		int contPotencia = tam - 1;
+		for (int i = 0; i < tam; i++) {
+			int digito = numeroChar[i] - '0';
+			for (int j = 0; j < contPotencia; j++) {
+				digito = digito * 10;
+			}
+			numero = numero + digito;
+			contPotencia--;
+		}
+
+		if (numero % 11 == 0) {
+			printf("%d is a multiple of 11.\n", numero);
+		}
+		else {
+			printf("%d is not a multiple of 11.", numero);
+		}
+	}
+
+	return 0;
 }
