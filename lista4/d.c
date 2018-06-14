@@ -33,20 +33,26 @@ Exemplo de Saída
 #define MAX 100
 
 int main() {
-    int quantDigitos, tam;
-    unsigned int numero;
+    unsigned int numero, tam;
     char numeroChar[MAX];
 
-    scanf("%d", &quantDigitos);
-    scanf("%s", numero);
-    tam = strlen(numero);
+    scanf("%s", numeroChar);
+    tam = strlen(numeroChar);
     
+    int contPotencia = tam - 1;
     for (int i = 0; i < tam; i++) {
-        char digito = numeroChar[i];
-        int dezenas = 0;
-        for (int j = 0; j < i; j++) {
-            
+        int digito = numeroChar[i] - '0';
+        for (int j = 0; j < contPotencia; j++) {
+            digito = digito * 10;
         }
+        numero = numero + digito;
+        contPotencia--;
+    }
+    
+    if(numero % 11 == 0) {
+        printf("%d is a multiple of 11.\n", numero);
+    } else {
+        printf("%d\n  is not a multiple of 11.", numero);
     }
 
     return 0;
