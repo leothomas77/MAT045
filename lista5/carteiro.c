@@ -1,18 +1,31 @@
 #include <iostream>
 using namespace std;
 
-int binaria(int vetor, int tam, int chave) {
-    int li = 0, ls = tam-1;
+int binaria(int vetor[], int tam, int chave) {
+    int li = 0, ls = tam-1, meio, valor;
     while(li<=ls) {
         meio = (li + ls)/2;
-
+        
+        
+    
+        valor = vetor[meio];
+        if (chave < valor) {
+            ls = meio-1;
+        } else if (chave > valor) {
+            li = meio+1;
+        } else {
+            break;
+        }
     }
-
-    return 0;
+    if (vetor[meio]==chave) {
+        return meio;
+    } else {     
+        return -1;
+    }
 }
 
 int main(){
-    int N, M, tempo = 0, posicao = 0;
+    int N, M, tempo = 0;
     cin>>N>>M;
     int casas[N];
     int entregas[M];
@@ -24,35 +37,17 @@ int main(){
     for (int i=0; i<M; i++) {
         cin>>entregas[i];
     }
-    
-    posicao = 0;
+ 
+    int posicao = 0, posicaoAnt = 0, deltaPosicao;
     for (int i=0; i<M; i++) {
-        if (entregas[i] > casas[posicao]) {
-            for(int j=posicao; j<N; j++) {
-                if (entregas[i]==casas[j]) {
-                    posicao = j;
-                    cout<<"1: entregou casa: "<<casas[j]<<endl;
-                    cout<<"1: tempo: "<<tempo<<endl;
-                    break;
-                } else {
-                    tempo++;
-                }
-            }
-        } else {
-            for(int j=posicao; j>0; j--) {
-                if (entregas[i]==casas[j]) {
-                   posicao = j;
-                   cout<<"2: entregou casa: "<<casas[j]<<endl;
-                   cout<<"2: tempo: "<<tempo<<endl;
-                   break;
-                } else {
-                    tempo++;
-                }
-            }
+        posicao = binaria(casas, N, entregas[i]);
+        deltaPosicao = posicao - posicaoAnt;
+        if (deltaPosicao < 0) {
+            deltaPosicao = -deltaPosicao;
         }
-   }
-
+        tempo += deltaPosicao;
+        posicaoAnt = posicao;
+    }
     cout<<tempo<<endl;
-
     return 0;
 }
